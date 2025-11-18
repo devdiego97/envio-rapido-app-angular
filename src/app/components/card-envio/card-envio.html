@@ -1,0 +1,72 @@
+<div class="bg-[#1E1B3B] shadow p-5 rounded-lg border border-[#322C54]"
+
+>
+  <div class="flex justify-between items-center mb-4">
+    <p class="text-[orange] text-xl font-bold">
+      Envio {{ envio.id }}
+    </p>
+
+    <div class="flex gap-3">
+      <button
+       [routerLink]="['/envios/atualizar/',envio.id]"
+        class="p-2 bg-blue-500 cursor-pointer hover:bg-blue-600 rounded transition"
+       
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             fill="none" 
+             viewBox="0 0 24 24" 
+             stroke-width="2" 
+             stroke="white" 
+             class="w-5 h-5 ">
+          <path stroke-linecap="round" 
+                stroke-linejoin="round" 
+                d="M4 4v6h6M20 20v-6h-6M5 19A9 9 0 0119 5" />
+        </svg>
+      </button>
+      <button
+        class="p-2 bg-red-600 hover:bg-red-700 cursor-pointer rounded transition"
+        (click)="deletar()"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             fill="none" 
+             viewBox="0 0 24 24" 
+             stroke-width="2" 
+             stroke="white" 
+             class="w-5 h-5 ">
+          <path stroke-linecap="round" 
+                stroke-linejoin="round" 
+                d="M6 7h12M9 7V4h6v3m1 0v12a2 2 0 01-2 2H9a2 2 0 01-2-2V7h10z" />
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+  <div class="h-[1px] bg-[orange] mb-4"></div>
+  <p class="text-gray-200">
+    <span class="text-[orange] font-semibold">CEP Destino:</span> {{ envio.cepDestino }}
+  </p>
+
+
+  <p class="text-gray-200">
+    <span class="text-[orange] font-semibold">CEP Origem:</span> {{ envio.cepOrigem }}
+  </p>
+
+
+  <p class="text-gray-200 mt-2">
+    <span class="text-[orange] font-semibold">Frete SEDEX:</span>
+    R$ {{ envio.frete.valorSedex }} -
+    <span class="text-[orange]">Prazo/Sedex:</span> {{ envio.frete.prazoSedex }} dias
+  </p>
+   <p class="text-gray-200 mt-2">
+    <span class="text-[orange] font-semibold">Peso:</span>
+     {{ envio.peso}} -
+    <span class="text-[orange]">Largura:</span> {{ envio.largura }} dias
+  </p>
+   <p class="text-gray-200 mt-2">
+    <span class="text-[orange] font-semibold">Altura:</span>
+     {{ envio.altura }} -
+    <span class="text-[orange]">Comprimento:</span> {{ envio.comprimento}} 
+  </p>
+
+</div>

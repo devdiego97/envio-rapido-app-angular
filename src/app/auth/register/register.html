@@ -1,0 +1,80 @@
+<section class="flex justify-center items-center">
+  <div class="min-h-[500px] shadow-2xs my-[30px] rounded-2x1 shadow-black p-6 w-[450px]">
+
+    <h1 class="text-[orange] my-[20px] text-[32px]">Criar Conta</h1>
+    <p class="text-gray-100 mb-[22px]">
+      Crie sua conta para começar a enviar e consultar envios via CEP
+    </p>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="w-full">
+
+      <!-- NOME -->
+      <div class="my-3">
+        <label class="text-[orange]">Nome</label>
+        <input
+          formControlName="nome"
+          class="p-3 w-full bg-gray-100 rounded focus:outline-1 focus:outline-orange-100"
+          placeholder="Digite seu primeiro nome"
+          type="text"
+        />
+        <span *ngIf="form.get('nome')?.touched && form.get('nome')?.invalid"
+              class="text-red-400 text-sm">
+          Nome é obrigatório e deve ter ao menos 12 caracteres.
+        </span>
+      </div>
+
+
+
+      <!-- EMAIL -->
+      <div class="my-3">
+        <label class="text-[orange]">Email</label>
+        <input
+          formControlName="email"
+          class="p-3 w-full bg-gray-100 rounded focus:outline-1 focus:outline-orange-100"
+          placeholder="Digite seu email"
+          type="email"
+        />
+        <span *ngIf="form.get('email')?.touched && form.get('email')?.invalid"
+              class="text-red-400 text-sm">
+          Insira um email válido.
+        </span>
+      </div>
+
+      <!-- SENHA -->
+      <div class="my-3">
+        <label class="text-[orange]">Senha</label>
+        <input
+          formControlName="senha"
+          class="p-3 w-full bg-gray-100 rounded focus:outline-1 focus:outline-orange-100"
+          placeholder="Digite sua senha"
+          type="password"
+        />
+        <span *ngIf="form.get('senha')?.touched && form.get('senha')?.invalid"
+              class="text-red-400 text-sm">
+          A senha deve ter no mínimo 12 caracteres.
+        </span>
+      </div>
+
+      <!-- BOTÕES -->
+      <div class="flex flex-col justify-center items-center my-[12px]">
+
+        <button
+          type="submit"
+          class="text-center bg-blue-400 my-12 text-gray-200 hover:bg-blue-500 cursor-pointer 
+                 rounded px-12 py-2 w-[50%]"
+        >
+          Criar conta
+        </button>
+
+        <a
+          routerLink="/login"
+          class="text-gray-200 hover:text-blue-300 transition-all"
+        >
+          Já tem uma conta? Clique aqui
+        </a>
+
+      </div>
+
+    </form>
+  </div>
+</section>
